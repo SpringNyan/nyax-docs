@@ -4,7 +4,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "Nyax",
-  tagline: "A State Management Framework",
+  tagline: "一个支持多种状态管理库的状态管理框架",
   url: "https://nyax.js.org",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -22,11 +22,27 @@ module.exports = {
       items: [
         {
           type: "doc",
-          docId: "intro",
-          position: "left",
-          label: "Tutorial",
+          docId: "introduction",
+          position: "right",
+          label: "文档",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        {
+          type: "doc",
+          docId: "api/nyax",
+          position: "right",
+          label: "API",
+        },
+        {
+          type: "docsVersionDropdown",
+          position: "right",
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              href: "https://springnyan.github.io/nyax-docs-0.5.x",
+              label: "0.5.x",
+            },
+          ],
+        },
         {
           href: "https://github.com/SpringNyan/nyax",
           label: "GitHub",
@@ -38,41 +54,53 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "学习",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "介绍",
+              to: "/docs/introduction",
+            },
+            {
+              label: "安装",
+              to: "/docs/getting-started/installation",
+            },
+            {
+              label: "概念",
+              to: "/docs/concepts/overview",
+            },
+            {
+              label: "API",
+              to: "/docs/api/nyax",
             },
           ],
         },
         {
-          title: "Community",
+          title: "状态管理库",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "MobX",
+              href: "https://mobx.js.org",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              label: "Redux",
+              href: "https://redux.js.org",
             },
             {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              label: "Vuex",
+              href: "https://next.vuex.vuejs.org",
             },
           ],
         },
         {
-          title: "More",
+          title: "更多",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
             {
               label: "GitHub",
               href: "https://github.com/SpringNyan/nyax",
+            },
+            {
+              label: "0.5.x",
+              href: "https://springnyan.github.io/nyax-docs-0.5.x",
             },
           ],
         },
@@ -90,15 +118,12 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "0.10.x",
+            },
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

@@ -4,32 +4,27 @@ import styles from "./HomepageFeatures.module.css";
 
 const FeatureList = [
   {
-    title: "TypeScript support",
-    Svg: require("../../static/img/undraw_docusaurus_mountain.svg").default,
+    title: "完善的 TypeScript 支持",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Nyax 提供开箱即用的 TypeScript
+        支持，你可以获得完善的类型推导和自动提示。
       </>
     ),
   },
   {
-    title: "Model based",
-    Svg: require("../../static/img/undraw_docusaurus_tree.svg").default,
+    title: "基于类的应用模块化",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Nyax 通过类定义组成应用的多个模块，你可以注册单个模块的一个或多个容器。
       </>
     ),
   },
   {
-    title: "Multiple bindings support",
-    Svg: require("../../static/img/undraw_docusaurus_react.svg").default,
+    title: "集成多种状态管理库",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Nyax 支持与 MobX, Redux 和 Vuex 集成，你可以自由选择喜欢的状态管理库。
       </>
     ),
   },
@@ -39,7 +34,7 @@ function Feature({ Svg, title, description }) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        {Svg && <Svg className={styles.featureSvg} alt={title} />}
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
