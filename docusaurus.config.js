@@ -69,6 +69,10 @@ module.exports = {
               to: "/docs/concepts/overview",
             },
             {
+              label: "高级",
+              to: "/docs/advanced/devtools",
+            },
+            {
               label: "API",
               to: "/docs/api/nyax",
             },
@@ -121,7 +125,7 @@ module.exports = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "0.10.x",
+              label: "latest",
             },
           },
         },
