@@ -1,0 +1,70 @@
+---
+sidebar_position: 1
+---
+
+# 安装
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+首先安装 Nyax 的核心包
+
+```bash
+npm install @nyax/core
+```
+
+然后根据选用的状态管理库，安装对应的绑定包及依赖
+
+<Tabs
+  defaultValue="mobx"
+  values={[
+    { label: "MobX", value: "mobx" },
+    { label: "Redux", value: "redux" },
+    { label: "Vuex", value: "vuex" },
+  ]}
+>
+<TabItem value="mobx">
+
+MobX 依赖
+
+- "mobx": "^6.0.0"
+
+```bash
+npm install @nyax/mobx
+
+# Dependencies
+npm install mobx
+```
+
+</TabItem>
+<TabItem value="redux">
+
+Redux 依赖
+
+- "redux": "^4.0.0"
+- "immer": "^9.0.0"
+
+```bash
+npm install @nyax/redux
+
+# Dependencies
+npm install redux immer
+```
+
+</TabItem>
+<TabItem value="vuex">
+
+Vuex 依赖
+
+- "vue": "^3.2.0"
+- "vuex": "^4.1.0"
+
+```bash
+npm install @nyax/vuex
+
+# Dependencies
+npm install vue@next vuex@next
+```
+
+</TabItem>
+</Tabs>
