@@ -1,0 +1,95 @@
+---
+sidebar_position: 2
+---
+
+# 基本用法
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## 步骤
+
+### 步骤 1: 创建基础 ModelClass
+
+创建基础 ModelClass 时应当提供 `Dependencies` 的定义。
+
+```ts
+interface Dependencies {
+  random: () => number;
+}
+
+const ModelBase = createBaseModelClass<Dependencies>();
+```
+
+### 步骤 2: 定义 Model
+
+定义 Model 时应当提供 Model 的名字，并继承基础 ModelClass。
+
+```ts
+const AppModel = defineModel(
+  "app",
+  class extends ModelBase {
+    initialState() {
+      return {
+        num: 0,
+      };
+    }
+
+    selectors() {
+      return {
+        isOdd: () => this.state.num % 2 === 1,
+      };
+    }
+
+    reducers() {
+      return {
+        addNum: (value: number) => {
+          this.state.num += value;
+        },
+      };
+    }
+
+    effects() {
+      return {
+        addRandomNum: async () => {
+          this.actions.addNum(Math.floor(this.dependencies.random() * 100));
+          return this.state.num;
+        },
+        addRandomNumWithDelay: async () => {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          return this.actions.addRandomNum({});
+        },
+      };
+    }
+  }
+);
+```
+
+### 步骤 3: 创建 Nyax 实例
+
+创建 Nyax 实例时应当提供 `dependencies` 实例以及状态管理库绑定包的 `createNyaxCreateStore` 方法。
+
+```ts
+const dependencies: Dependencies = {
+  random: () => Math.random(),
+};
+
+const nyax = createNyax({
+  dependencies,
+  createStore: createNyaxCreateStore({}),
+});
+```
+
+### 步骤 4: 获得 Container
+
+获得 Container 后可以使用其对应的 state, getters 和 actions。
+
+```ts
+const appContainer = nyax.getContainer(AppModel);
+
+console.log(appContainer.state.num);
+console.log(appContainer.getters.isOdd);
+
+appContainer.actions.addNum(1);
+console.log(await appContainer.actions.addRandomNumWithDelay({}));
+```
