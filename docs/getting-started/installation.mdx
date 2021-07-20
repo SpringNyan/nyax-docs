@@ -7,15 +7,20 @@ sidebar_position: 1
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-首先安装 Nyax 的核心包
+## 安装核心包
 
-```bash
-npm install @nyax/core
+使用以下 npm 命令安装 Nyax 的核心包。
+
+```sh
+npm i @nyax/core
 ```
 
-然后根据选用的状态管理库，安装对应的绑定包及依赖
+## 安装绑定包
+
+根据选用的状态管理库，安装相应的绑定包及依赖。
 
 <Tabs
+  groupId="libs"
   defaultValue="mobx"
   values={[
     { label: "MobX", value: "mobx" },
@@ -25,46 +30,84 @@ npm install @nyax/core
 >
 <TabItem value="mobx">
 
-MobX 依赖
+@nyax/mobx 依赖
 
 - "mobx": "^6.0.0"
 
-```bash
-npm install @nyax/mobx
+```sh
+npm i @nyax/mobx
 
 # Dependencies
-npm install mobx
+npm i mobx
 ```
 
 </TabItem>
 <TabItem value="redux">
 
-Redux 依赖
+@nyax/redux 依赖
 
 - "redux": "^4.0.0"
 - "immer": "^9.0.0"
 
-```bash
-npm install @nyax/redux
+```sh
+npm i @nyax/redux
 
 # Dependencies
-npm install redux immer
+npm i redux immer
 ```
 
 </TabItem>
 <TabItem value="vuex">
 
-Vuex 依赖
+@nyax/vuex 依赖
 
 - "vue": "^3.2.0"
 - "vuex": "^4.1.0"
 
-```bash
-npm install @nyax/vuex
+```sh
+npm i @nyax/vuex
 
 # Dependencies
-npm install vue@next vuex@next
+npm i vue@next vuex@next
 ```
+
+</TabItem>
+</Tabs>
+
+## UI 库集成
+
+你可以使用状态管理库官方推荐的方式与 UI 库集成。
+
+<Tabs
+  groupId="libs"
+  defaultValue="mobx"
+  values={[
+    { label: "MobX", value: "mobx" },
+    { label: "Redux", value: "redux" },
+    { label: "Vuex", value: "vuex" },
+  ]}
+>
+<TabItem value="mobx">
+
+MobX 使用 mobx-react-lite 与 React 集成。
+
+```sh
+npm i mobx-react-lite
+```
+
+</TabItem>
+<TabItem value="redux">
+
+Redux 使用 react-redux 与 React 集成。
+
+```sh
+npm i react-redux
+```
+
+</TabItem>
+<TabItem value="vuex">
+
+Vuex 本身支持与 Vue 集成，无需安装其它包。
 
 </TabItem>
 </Tabs>
